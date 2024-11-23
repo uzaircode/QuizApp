@@ -73,13 +73,16 @@ class when_user_submits_quiz: XCTestCase {
     let quizList = app.collectionViews["quizList"]
     quizList.cells.children(matching: .other).element(boundBy: 1).tap()
             
-    let _ = app.collectionViews["questionList"].waitForExistence(timeout: 2.0)
+    let _ = app.collectionViews["questionList"].waitForExistence(timeout: 5.0)
     
     let questionListTable = app.collectionViews["questionList"]
     
     questionListTable.children(matching: .cell).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .image).matching(identifier: "square").element(boundBy: 1).tap()
+    let _ = app.collectionViews["questionList"].waitForExistence(timeout: 5.0)
     questionListTable.children(matching: .cell).element(boundBy: 1).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .image).matching(identifier: "square").element(boundBy: 2).tap()
+    let _ = app.collectionViews["questionList"].waitForExistence(timeout: 5.0)
     questionListTable.children(matching: .cell).element(boundBy: 2).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .image).matching(identifier: "square").element(boundBy: 3).tap()
+    let _ = app.collectionViews["questionList"].waitForExistence(timeout: 5.0)
     
     
     app.buttons["submitQuizButton"].tap()
