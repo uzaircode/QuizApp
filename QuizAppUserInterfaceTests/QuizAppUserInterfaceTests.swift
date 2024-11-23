@@ -73,6 +73,8 @@ class when_user_submits_quiz: XCTestCase {
     let quizList = app.collectionViews["quizList"]
     quizList.cells.children(matching: .other).element(boundBy: 1).tap()
             
+    let _ = app.collectionViews["questionList"].waitForExistence(timeout: 5.0)
+
     let questionListTable = app.collectionViews["questionList"]
     
     questionListTable.children(matching: .cell).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element/*@START_MENU_TOKEN@*/.children(matching: .image).matching(identifier: "square").element(boundBy: 1)/*[[".children(matching: .image).matching(identifier: \"Square\").element(boundBy: 1)",".children(matching: .image).matching(identifier: \"square\").element(boundBy: 1)"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
