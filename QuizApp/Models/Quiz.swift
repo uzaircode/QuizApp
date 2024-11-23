@@ -2,14 +2,10 @@
 //  Quiz.swift
 //  QuizApp
 //
-//  Created by Mohammad Azam on 10/21/21.
+//  Created by Mohammad Azam on 11/4/21.
 //
 
 import Foundation
-
-enum GradingError: Error {
-    case unableToGrade
-}
 
 struct Grade {
     let letter: String
@@ -24,7 +20,7 @@ class Quiz {
     
     init(quizDTO: QuizDTO) {
         self.quizId = quizDTO.quizId
-        self.title = quizDTO.title 
+        self.title = quizDTO.title
         self.questions = quizDTO.questions.map(Question.init)
     }
     
@@ -34,50 +30,33 @@ class Quiz {
         }
     }
     
-    static func submit(submission: QuizSubmission, completion: @escaping (Result<Grade, Error>) -> Void) {
-        
-        // get an updated copy of the quiz
-        Webservice().getQuizById(url: Constants.Urls.quizById(submission.quizId)) { result in
-            switch result {
-                case .success(let quizDTO):
-                    let quiz = Quiz(quizDTO: quizDTO)
-                    let userGrade = grade(quiz: quiz, submission: submission)
-                    completion(.success(userGrade))
-                case .failure(let error):
-                    print(error)
-            }
-        }
-    }
-    
-    static func grade(quiz: Quiz, submission: QuizSubmission) -> Grade {
+    func grade(submission: QuizSubmission) -> Grade {
         
         var submissionTotal = 0
         
-        quiz.questions.forEach { question in
+        questions.forEach { question in
             let correctChoice = question.choices.first { $0.isCorrect == true }
-            let userChoice = submission.selectedChoices[question.questionId]
+            let userChoiceId = submission.selectedChoices[question.questionId]
             
-            if let correctChoice = correctChoice, let userChoice = userChoice {
-                if correctChoice.choiceId == userChoice {
+            if let correctChoice = correctChoice, let userChoiceId = userChoiceId {
+                if correctChoice.choiceId == userChoiceId {
                     submissionTotal += question.point
                 }
             }
         }
         
-        let score = submissionTotal/quiz.totalPoints
+        let score = (Double(submissionTotal) / Double(totalPoints)) * 100
         let letterGrade = calculateLetterGrade(score: score)
-       
-        return Grade(letter: letterGrade, score: score)
+        return Grade(letter: letterGrade, score: Int(score))
+        
     }
     
-    static private func calculateLetterGrade(score: Int) -> String {
+    func calculateLetterGrade(score: Double) -> String {
         
         switch score {
-            case 1...40:
-                return "D"
-            case 41...70:
-                return "C"
-            case 71...89:
+            case 0...59:
+                return "F"
+            case 60...89:
                 return "B"
             case 90...100:
                 return "A"
@@ -87,18 +66,6 @@ class Quiz {
         
     }
     
-    static func getAll(completion: @escaping (Result<[Quiz], NetworkError>) -> Void) {
-        
-        Webservice().getAllQuizes(url: Constants.Urls.allQuizes) { result in
-            switch result {
-                case .success(let quizesDTO):
-                    completion(.success(quizesDTO.map(Quiz.init)))
-                case .failure(let error):
-                    completion(.failure(error))
-            }
-        }
-        
-    }
 }
 
 class Question {

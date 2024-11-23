@@ -10,10 +10,14 @@ import SwiftUI
 struct QuestionListScreen: View {
     
     let quiz: QuizViewModel
-    @StateObject private var questionListVM = QuestionListViewModel()
     @State var quizSubmission: QuizSubmission
     @State private var gradeQuiz: Bool = false
+    @State private var message: String = ""
 
+    func isSubmissionValid() -> Bool {
+        return quizSubmission.selectedChoices.count == quiz.questions.count
+    }
+    
     var body: some View {
                 
                 VStack {
@@ -44,25 +48,36 @@ struct QuestionListScreen: View {
                             }
                         }
                         
-                    }.listStyle(.plain)
+                    }
+                    .accessibilityIdentifier("questionList")
+                    .listStyle(.plain)
                     .buttonStyle(.plain)
                     
+                    Text(message)
+                        .accessibility(identifier: "messageText")
                     
                     NavigationLink(isActive: $gradeQuiz) {
-                        QuizGradeScreen()
+                        QuizGradeScreen(submission: quizSubmission, quiz: quiz)
                     } label: {
+                        
                         Button("Submit") {
-                           gradeQuiz = true
+                            if isSubmissionValid() {
+                                gradeQuiz = true
+                            } else {
+                                message = Constants.Messages.quizSubmissonFailed
+                            }
                         }
                         .frame(maxWidth: .infinity, maxHeight: 44)
                         .foregroundColor(.white)
                         .background(Color.blue)
                         .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                         .padding()
+                        .accessibility(identifier: "submitQuizButton")
                     }
                     
-                    Spacer()
+                   
                     
+                    Spacer()
                     
                 }.onAppear(perform: {
                     quizSubmission = QuizSubmission(quizId: quiz.quizId)

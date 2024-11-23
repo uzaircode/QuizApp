@@ -8,11 +8,18 @@
 import Foundation
 
 struct Constants {
+    
+    static let baseURL = URL(string: "https://warp-wiry-rugby.glitch.me")!
+    
     struct Urls {
         
-        static let allQuizes = URL(string: "https://warp-wiry-rugby.glitch.me/all-quizes")!
+        static let allQuizes = baseURL.appendingPathComponent("/all-quizes")
         static func quizById(_ quizId: Int) -> URL {
-            return URL(string: "https://warp-wiry-rugby.glitch.me/quizes/\(quizId)")!
+            return baseURL.appendingPathComponent("/quizes/\(quizId)")
         }
+    }
+    
+    struct Messages {
+        static let quizSubmissonFailed = "Unable to submit quiz. Please answer all questions."
     }
 }

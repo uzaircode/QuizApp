@@ -7,20 +7,15 @@
 
 import Foundation
 
-class QuestionListViewModel: ObservableObject {
-    
-    
-}
-
 struct QuestionViewModel: Identifiable {
     
     var id: Int {
         question.questionId
     }
     
-    private let question: Question
+    private let question: QuestionDTO
     
-    init(question: Question) {
+    init(question: QuestionDTO) {
         self.question = question
     }
     
@@ -48,9 +43,9 @@ struct ChoiceViewModel: Identifiable {
     }
     
     private var isSelected: Bool = false
-    private let choice: Choice
+    private let choice: ChoiceDTO
     
-    init(choice: Choice) {
+    init(choice: ChoiceDTO) {
         self.choice = choice
     }
     
@@ -67,21 +62,5 @@ struct ChoiceViewModel: Identifiable {
     }
 }
 
-struct GradeViewModel {
-    
-    private let grade: Grade
-    
-    init(grade: Grade) {
-        self.grade = grade
-    }
-    
-    var letter: String {
-        grade.letter.uppercased()
-    }
-    
-    var score: Int {
-        grade.score
-    }
-    
-}
+
 

@@ -9,7 +9,7 @@ import Foundation
 
 class QuizData {
     
-    static func loadQuizes() -> [QuizViewModel] {
+    static func loadQuizDTOs() -> [QuizDTO] {
         
         // read the json file
         guard let path = Bundle.main.path(forResource: "quizes", ofType: "json") else {
@@ -24,8 +24,15 @@ class QuizData {
             fatalError("Unable to decode data!")
         }
         
-        return quizesDTO.map(Quiz.init)
-            .map(QuizViewModel.init)
+        return quizesDTO
+    }
+
+    
+    static func loadQuizes() -> [QuizViewModel] {
+        
+        let quizesDTO = loadQuizDTOs() 
+        
+        return quizesDTO.map(QuizViewModel.init)
     }
     
 }

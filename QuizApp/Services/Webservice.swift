@@ -10,9 +10,10 @@ import Foundation
 enum NetworkError: Error {
     case badRequest
     case decodingError
+    case badURL 
 }
 
-class Webservice {
+class Webservice: NetworkService {
     
     func getAllQuizes(url: URL, completion: @escaping (Result<[QuizDTO], NetworkError>) -> Void) {
         

@@ -11,7 +11,6 @@ struct QuizSubmission {
     
     let quizId: Int
     private (set) var selectedChoices: [Int: Int] = [:]
-    var grade: Grade?
     
     init(quizId: Int) {
         self.quizId = quizId
