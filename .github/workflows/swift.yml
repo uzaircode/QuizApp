@@ -26,10 +26,18 @@ jobs:
       run: |
         xcodebuild build -project QuizApp.xcodeproj -scheme QuizApp -sdk iphoneos CODE_SIGNING_ALLOWED=No -quiet
 
-    - name: Run Unit Tests
-      run: |
-        xcodebuild test -project QuizApp.xcodeproj -scheme QuizAppUnitTests -sdk iphonesimulator -destination "platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro" CODE_SIGNING_ALLOWED=No
+  unit_test:
+    runs-on: macos-latest
+    needs: build
+    steps:
+      - name: Run Unit Tests
+        run: |
+          xcodebuild test -project QuizApp.xcodeproj -scheme QuizAppUnitTests -sdk iphonesimulator -destination "platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro" CODE_SIGNING_ALLOWED=No
 
-    - name: Run UI Tests
-      run: |
-        xcodebuild test -project QuizApp.xcodeproj -scheme QuizAppUserInterfaceTests -sdk iphonesimulator -destination "platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro" CODE_SIGNING_ALLOWED=No
+  ui_test:
+    runs-on: macos-latest
+    needs: build
+    steps:
+       - name: Run UI Tests
+         run: |
+          xcodebuild test -project QuizApp.xcodeproj -scheme QuizAppUserInterfaceTests -sdk iphonesimulator -destination "platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro" CODE_SIGNING_ALLOWED=No
