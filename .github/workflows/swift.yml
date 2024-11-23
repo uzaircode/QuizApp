@@ -22,11 +22,6 @@ jobs:
       with:
         xcode-version: '15.0'  # Set to the correct Xcode version
 
-    - name: Ensure Correct Xcode Version
-      run: |
-        sudo xcode-select -s /Applications/Xcode_15.app
-        xcodebuild -version
-
     - name: Clean Build Folder
       run: |
         xcodebuild clean -project QuizApp.xcodeproj -scheme QuizApp CODE_SIGNING_ALLOWED=No
