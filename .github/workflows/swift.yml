@@ -12,11 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3 
-
-    - name: Clear Cache
-      run: |
-        rm -rf ~/Library/Caches
-        rm -rf ~/.cache
     
     - name: Xcode Setup
       uses: maxim-lobanov/setup-xcode@v1
