@@ -26,7 +26,7 @@ struct QuestionListScreen: View {
                         let question = quiz.questions[index]
                         
                         VStack(alignment: .leading) {
-                            HStac {
+                            HStack {
                                 Text("\(index + 1)")
                                     .padding(10)
                                     .foregroundColor(.white)
