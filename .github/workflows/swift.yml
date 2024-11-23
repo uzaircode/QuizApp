@@ -20,7 +20,7 @@ jobs:
     - name: Xcode Setup
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: '16.0'  # Set to the correct Xcode version
+        xcode-version: '15.0'  # Set to the correct Xcode version
 
     - name: Clean Build Folder
       run: |
