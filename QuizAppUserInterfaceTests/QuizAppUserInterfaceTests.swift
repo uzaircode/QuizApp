@@ -77,11 +77,11 @@ class when_user_submits_quiz: XCTestCase {
     
     let questionListTable = app.collectionViews["questionList"]
     
-    questionListTable.children(matching: .cell).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .image).matching(identifier: "square").element(boundBy: 1).tap()
+    questionListTable.children(matching: .cell).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .image).matching(identifier: "Square").element(boundBy: 1).tap()
     let _ = app.collectionViews["questionList"].waitForExistence(timeout: 5.0)
-    questionListTable.children(matching: .cell).element(boundBy: 1).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .image).matching(identifier: "square").element(boundBy: 2).tap()
+    questionListTable.children(matching: .cell).element(boundBy: 1).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .image).matching(identifier: "Square").element(boundBy: 2).tap()
     let _ = app.collectionViews["questionList"].waitForExistence(timeout: 5.0)
-    questionListTable.children(matching: .cell).element(boundBy: 2).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .image).matching(identifier: "square").element(boundBy: 3).tap()
+    questionListTable.children(matching: .cell).element(boundBy: 2).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .image).matching(identifier: "Square").element(boundBy: 3).tap()
     let _ = app.collectionViews["questionList"].waitForExistence(timeout: 5.0)
     
     
