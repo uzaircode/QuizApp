@@ -16,7 +16,7 @@ jobs:
     - name: Xcode Setup
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: latest-stable
+        xcode-version: "15.4"
 
     - name: Clean Build Folder
       run: |
