@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		35443A482CF1CAF3000F43A8 /* QuizGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2953027234FEE00FD879D /* QuizGradeScreen.swift */; };
 		35443A492CF1CB03000F43A8 /* QuizGradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2953227234FFF00FD879D /* QuizGradeViewModel.swift */; };
 		35443A4A2CF1CB10000F43A8 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9D2BDC27341E070094D2A6 /* Quiz.swift */; };
+		35443A5D2CF1D2CF000F43A8 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 35443A5C2CF1D2CF000F43A8 /* InlineSnapshotTesting */; };
+		35443A5F2CF1D2CF000F43A8 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 35443A5E2CF1D2CF000F43A8 /* SnapshotTesting */; };
 		8D9D2BD627341C7D0094D2A6 /* QuizAppUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9D2BD527341C7D0094D2A6 /* QuizAppUnitTests.swift */; };
 		8D9D2BDD27341E070094D2A6 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9D2BDC27341E070094D2A6 /* Quiz.swift */; };
 		8D9D2BE127343C460094D2A6 /* QuizSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9D2BE027343C460094D2A6 /* QuizSubmission.swift */; };
@@ -113,6 +115,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35443A5D2CF1D2CF000F43A8 /* InlineSnapshotTesting in Frameworks */,
+				35443A5F2CF1D2CF000F43A8 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +304,8 @@
 			);
 			name = QuizAppSnapshotTests;
 			packageProductDependencies = (
+				35443A5C2CF1D2CF000F43A8 /* InlineSnapshotTesting */,
+				35443A5E2CF1D2CF000F43A8 /* SnapshotTesting */,
 			);
 			productName = QuizAppSnapshotTests;
 			productReference = 35443A522CF1D12F000F43A8 /* QuizAppSnapshotTests.xctest */;
@@ -394,6 +400,9 @@
 				Base,
 			);
 			mainGroup = 8DF294F82721EB8800FD879D;
+			packageReferences = (
+				35443A5B2CF1D2CF000F43A8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = 8DF295022721EB8800FD879D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -889,6 +898,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		35443A5B2CF1D2CF000F43A8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.17.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		35443A5C2CF1D2CF000F43A8 /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35443A5B2CF1D2CF000F43A8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		35443A5E2CF1D2CF000F43A8 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35443A5B2CF1D2CF000F43A8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8DF294F92721EB8800FD879D /* Project object */;
 }
