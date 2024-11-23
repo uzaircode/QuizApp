@@ -34,6 +34,6 @@ jobs:
       run: |
         xcodebuild test -project QuizApp.xcodeproj -scheme QuizAppUnitTests -sdk iphonesimulator -destination "platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro" CODE_SIGNING_ALLOWED=No -quiet
 
-      - name: Run UI Tests
+    - name: Run UI Tests
       run: |
         xcodebuild test -project QuizApp.xcodeproj -scheme QuizAppUserInterfaceTests -sdk iphonesimulator -destination "platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro" CODE_SIGNING_ALLOWED=No -quiet
