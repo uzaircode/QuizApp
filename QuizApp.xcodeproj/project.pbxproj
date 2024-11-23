@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -106,10 +106,6 @@
 		8DF915812726FF0000432CB0 /* NetworkServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		35443A532CF1D12F000F43A8 /* QuizAppSnapshotTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = QuizAppSnapshotTests; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		35443A4F2CF1D12F000F43A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -176,7 +172,6 @@
 				8DF295032721EB8800FD879D /* QuizApp */,
 				8D9D2BD427341C7D0094D2A6 /* QuizAppUnitTests */,
 				8DE7AFCE273571BB00FB0FA7 /* QuizAppUserInterfaceTests */,
-				35443A532CF1D12F000F43A8 /* QuizAppSnapshotTests */,
 				8DF295022721EB8800FD879D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -298,9 +293,6 @@
 			);
 			dependencies = (
 				35443A572CF1D12F000F43A8 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				35443A532CF1D12F000F43A8 /* QuizAppSnapshotTests */,
 			);
 			name = QuizAppSnapshotTests;
 			packageProductDependencies = (
